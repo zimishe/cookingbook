@@ -12,3 +12,13 @@ export function createRecipe(recipe) {
         body: JSON.stringify(recipe),
     });
 }
+
+export function editRecipe(recipe, id) {
+    return fetch(`http://localhost:8000/recipes/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'PUT',
+        body: JSON.stringify(recipe),
+    });
+}

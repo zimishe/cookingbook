@@ -1,0 +1,7 @@
+.add-recipe,
+.recipe-form {
+  max-width: 500px;
+  margin: 20px auto; }
+  .add-recipe__input.mdc-text-field,
+  .recipe-form__input.mdc-text-field {
+    margin-bottom: 20px; }

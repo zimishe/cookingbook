@@ -10,7 +10,7 @@ import * as actions from './recipes-list.actions';
 
 class RecipesList extends Component {
     componentDidMount() {
-        this.props.fetchRecipes();
+        // this.props.fetchRecipes();
     }
 
     render() {
