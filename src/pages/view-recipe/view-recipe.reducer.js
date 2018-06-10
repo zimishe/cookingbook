@@ -1,28 +1,35 @@
 import {
-    FETCH_RECIPES,
-    FETCH_RECIPES_SUCCESS,
-} from './recipes-list.actions';
+    VIEW_RECIPE_HISTORY,
+    VIEW_RECIPE_HISTORY_SUCCESS,
+    VIEW_RECIPE_HISTORY_FAILURE,
+} from './view-recipe.actions';
 
 const defaultState = {
     error: false,
     pending: false,
-    recipes: null,
+    history: null,
 };
 
 export default (state = defaultState, { type, payload }) => {
     switch (type) {
-        case FETCH_RECIPES:
+        case VIEW_RECIPE_HISTORY:
             return {
                 ...state,
                 pending: true,
                 error: false,
             }
-        case FETCH_RECIPES_SUCCESS:
+        case VIEW_RECIPE_HISTORY_SUCCESS:
             return {
                 ...state,
                 pending: false,
                 error: false,
-                recipes: payload
+                history: payload,
+            }
+        case VIEW_RECIPE_HISTORY_FAILURE:
+            return {
+                ...state,
+                pending: false,
+                error: true,
             }
         default:
             return state;

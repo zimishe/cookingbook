@@ -1,6 +1,19 @@
 export function getRecipes() {
-    console.log('getRecipes');
-    return fetch('http://some-api/getRecipes');
+    return fetch('http://localhost:8000/recipes', {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'GET',
+    }).then(res => res.json());
+}
+
+export function getRecipeHistory(id) {
+    return fetch(`http://localhost:8000/recipes/history/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'GET',
+    }).then(res => res.json());
 }
 
 export function createRecipe(recipe) {
