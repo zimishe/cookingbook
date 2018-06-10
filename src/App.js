@@ -6,7 +6,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        {routes}
+        <main className="main">
+          {routes}
+        </main>
       </div>
     ) 
   }

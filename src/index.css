@@ -1,5 +1,19 @@
-body {
+@import url(./../node_modules/@material/button/dist/mdc.button.min.css);
+@import url(./../node_modules/@material/toolbar/dist/mdc.toolbar.min.css);
+@import url(./../node_modules/@material/textfield/dist/mdc.textfield.min.css);
+.container {
+  max-width: 992px;
+  margin: 0 auto; }
+
+.add-recipe,
+.recipe-form {
+  max-width: 500px;
+  margin: 20px auto; }
+  .add-recipe__input.mdc-text-field,
+  .recipe-form__input.mdc-text-field {
+    margin-bottom: 20px; }
+
+body,
+p {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+  padding: 0; }

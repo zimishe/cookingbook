@@ -2,8 +2,8 @@ const { dbName } = require('./../_config/db');
 
 module.exports = (app, client) => {
     app.post('/recipes', (req, res) => {
-        const { title = '', description = '' } = req.body;
-        const recipe = { title, description };
+        const dateAdded = new Date().toISOString();
+        const recipe = { ...req.body, dateAdded };
 
         const db = client.db(dbName);
 

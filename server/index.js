@@ -5,7 +5,14 @@ const { URL } = require('./_config/db');
 const port = 8000;
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 MongoClient.connect(URL, (err, database) => {
     if (err) return console.log(err);
