@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-top: 30px;
+    margin: 30px 0;
 
     &__main-info,
     &__history {
@@ -11,11 +11,19 @@
     }
 
     &__main-info {
-        flex-basis: 60%;
+        flex-basis: calc(60% - 20px);
+        padding: 0 0 20px 20px;
+        margin-right: 20px;
+        border-left: 1px solid rgba(0, 0, 0, .54);
+        border-bottom: 1px solid rgba(0, 0, 0, .54);
     }
 
     &__history {
-        flex-basis: 40%;
+        flex-basis: calc(40% - 10px);
+        margin-left: 10px;
+        padding-bottom: 20px;
+        border-right: 1px solid rgba(0, 0, 0, .54);
+        border-bottom: 1px solid rgba(0, 0, 0, .54);
     }
 
     &__title,
@@ -35,10 +43,35 @@
         }
     }
 
+    &__load-history {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
     .single-recipe__card {
         flex-basis: 100%;
         margin-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-        padding: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, .54);
+        padding: 15px 0;
+
+        span {
+            padding: 0 15px;
+        }
+
+        .mdc-typography--subtitle2 {
+            margin-bottom: 15px;
+        }
+
+        .mdc-typography--body1 {
+            margin-top: 10px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        &__main-info,
+        &__history {
+            flex-basis: 100%;
+            margin: 20px 0;
+        }
     }
 }

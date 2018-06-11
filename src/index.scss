@@ -2,11 +2,24 @@
 @import '_shared/styles/main-layout.scss';
 @import 'pages/add-recipe/add-recipe.scss';
 @import 'pages/view-recipe/view-recipe.scss';
+@import 'pages/recipes-list/recipes-list.scss';
 
 body,
 p, {
     margin: 0;
     padding: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.main {
+    margin-bottom: 20px;
+}
+
+.mdc-toolbar {
+    background-color: #607d8b;
 }
 
 .link--home {

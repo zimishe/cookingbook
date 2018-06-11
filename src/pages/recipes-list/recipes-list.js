@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-    Toolbar,
-    ToolbarRow,
-    ToolbarTitle,
-} from 'rmwc/Toolbar';
+import { MainToolbar } from './../../_shared/components/toolbar/main-toolbar';
 import { Typography } from 'rmwc/Typography';
 import { Link } from 'react-router-dom';
-import { LinkHome } from './../../_shared/components/link-home';
 import { RecipeCard } from './../../_shared/components/cards/recipe-card';
 import getRecipesListProps from './../../_shared/selectors/get-recipes';
 import * as actions from './recipes-list.actions';
@@ -26,12 +22,7 @@ export class RecipesList extends Component {
 
         return (
             <React.Fragment>
-                <Toolbar waterfall>
-                    <ToolbarRow>
-                        <LinkHome />
-                        <ToolbarTitle>Recipes list</ToolbarTitle>
-                    </ToolbarRow>
-                </Toolbar>
+                <MainToolbar title='Recipes List' />
                 <div className="container">
                     <div className="recipes-list">
                         {recipes.length ? (
@@ -39,14 +30,14 @@ export class RecipesList extends Component {
                                 <Link to={`/recipe/${id}`} key={i} className='recipe-list__item'>
                                     <RecipeCard {...rest} />
                                 </Link>
-                            ))
-                        ) : <Typography use="heading3">No recipes found. Try adding one</Typography>}
-                        <Link
-                            to='/add-recipe'
-                            className='mdc-button mdc-button--unelevated mdc-ripple-upgraded'>
-                                Add recipe
-                        </Link>
+                            )).reverse()
+                        ) : <Typography use="subtitle2">No recipes found. Try adding one</Typography>}
                     </div>
+                    <Link
+                        to='/add-recipe'
+                        className='mdc-button mdc-button--unelevated mdc-ripple-upgraded'>
+                            Add recipe
+                    </Link>
                 </div>
             </React.Fragment>
         )
@@ -54,3 +45,8 @@ export class RecipesList extends Component {
 }
 
 export default connect(getRecipesListProps, actions)(RecipesList);
+
+RecipesList.propTypes = {
+    recipes: PropTypes.array,
+    fetchRecipes: PropTypes.func,
+}

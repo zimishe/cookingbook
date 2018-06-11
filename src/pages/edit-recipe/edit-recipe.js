@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-    Toolbar,
-    ToolbarRow,
-    ToolbarTitle,
-} from 'rmwc/Toolbar';
-import { LinkHome } from './../../_shared/components/link-home';
+import { MainToolbar } from './../../_shared/components/toolbar/main-toolbar';
 import getRecipesListProps from './../../_shared/selectors/get-recipes';
 import RecipeForm from './../../_shared/components/forms';
 import { fetchRecipes } from './../recipes-list/recipes-list.actions';
@@ -43,12 +39,7 @@ export class EditRecipe extends Component {
 
         return (
             <React.Fragment>
-                <Toolbar>
-                    <ToolbarRow>
-                        <LinkHome />
-                        <ToolbarTitle>Edit recipe</ToolbarTitle>
-                    </ToolbarRow>
-                </Toolbar>
+                <MainToolbar title='Edit recipe' />
                 <div className='container'>
                     <RecipeForm
                         title={title}
@@ -63,3 +54,9 @@ export class EditRecipe extends Component {
 }
 
 export default connect(getRecipesListProps, {...actions, fetchRecipes})(EditRecipe);
+
+EditRecipe.propTypes = {
+    recipes: PropTypes.array,
+    match: PropTypes.object,
+    editRecipe: PropTypes.func
+}

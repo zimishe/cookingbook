@@ -8,7 +8,6 @@ const defaultState = {
     error: false,
     pending: false,
     history: [],
-    historyLoaded: false,
 };
 
 function addToHistory(history, payload) {

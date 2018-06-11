@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-    Toolbar,
-    ToolbarRow,
-    ToolbarTitle,
-} from 'rmwc/Toolbar';
-import { LinkHome } from './../../_shared/components/link-home';
+import { MainToolbar } from './../../_shared/components/toolbar/main-toolbar';
 import RecipeForm from './../../_shared/components/forms';
 import * as actions from './add-recipe.actions';
 
@@ -23,12 +19,7 @@ export class AddRecipe extends Component {
     render() {
         return (
             <React.Fragment>
-                <Toolbar>
-                    <ToolbarRow>
-                        <LinkHome />
-                        <ToolbarTitle>Add recipe</ToolbarTitle>
-                    </ToolbarRow>
-                </Toolbar>
+                <MainToolbar title='Add recipe' />
                 <div className='container'>
                     <RecipeForm
                         isFormValid={this.isFormValid}
@@ -41,3 +32,7 @@ export class AddRecipe extends Component {
 }
 
 export default connect(null, actions)(AddRecipe);
+
+AddRecipe.propTypes = {
+    createRecipe: PropTypes.func.isRequired,
+}

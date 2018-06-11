@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-    Toolbar,
-    ToolbarRow,
-    ToolbarTitle,
-} from 'rmwc/Toolbar';
-import { LinkHome } from './../../_shared/components/link-home';
+import { MainToolbar } from './../../_shared/components/toolbar/main-toolbar';
 import { RecipeMainInfo } from './../../_shared/components/recipe-info/main-info';
 import { RecipeHistory } from './../../_shared/components/recipe-info/history-info';
 import * as actions from './view-recipe.actions';
@@ -38,12 +34,7 @@ export class ViewRecipe extends Component {
 
         return (
             <React.Fragment>
-                <Toolbar waterfall>
-                    <ToolbarRow>
-                        <LinkHome />
-                        <ToolbarTitle>Recipe</ToolbarTitle>
-                    </ToolbarRow>
-                </Toolbar>
+                <MainToolbar title='Recipe' />
                 <div className='container'>
                     <div className='single-recipe'>
                         <RecipeMainInfo id={params.id} title={title} description={description} dateAdded={dateAdded} />
@@ -61,3 +52,12 @@ const mapStateToProps = ({
 }) => ({ recipes, history, error, pending });
 
 export default connect(mapStateToProps, {...actions, fetchRecipes})(ViewRecipe);
+
+ViewRecipe.propTypes = {
+    recipes: PropTypes.array,
+    history: PropTypes.array,
+    error: PropTypes.bool,
+    pending: PropTypes.bool,
+    fetchRecipes: PropTypes.func,
+    match: PropTypes.object,
+};
