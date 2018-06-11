@@ -1,7 +1,7 @@
-// const API_URL = process.env.
+const API_URL = 'https://warm-beyond-66406.herokuapp.com';
 
 export function getRecipes() {
-    return fetch('https://warm-beyond-66406.herokuapp.com:53600/recipes', {
+    return fetch(`${API_URL}/recipes`, {
         headers: {
             'Content-Type': 'application/json',
         },
@@ -11,7 +11,7 @@ export function getRecipes() {
 
 
 export function getRecipeHistory(id) {
-    return fetch(`http://localhost:8000/recipes/history/${id}`, {
+    return fetch(`${API_URL}/recipes/history/${id}`, {
         headers: {
             'Content-Type': 'application/json',
         },
@@ -20,7 +20,7 @@ export function getRecipeHistory(id) {
 }
 
 export function createRecipe(recipe) {
-    return fetch('http://localhost:8000/recipes', {
+    return fetch(`${API_URL}/recipes`, {
         headers: {
             'Content-Type': 'application/json',
         },
@@ -30,7 +30,7 @@ export function createRecipe(recipe) {
 }
 
 export function editRecipe(recipe, id) {
-    return fetch(`http://localhost:8000/recipes/${id}`, {
+    return fetch(`${API_URL}/recipes/${id}`, {
         headers: {
             'Content-Type': 'application/json',
         },
