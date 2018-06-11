@@ -4,10 +4,7 @@ front-end - `src/` directory
 ## To run:
 `yarn install` to install required packages
 `yarn server` to launch back-end
-
-You can use either DEV version - run `yarn start` to launch front-end
-or deployed version = 'https://cookingbook00.herokuapp.com/'
-both uses localhost for back-end
+`yarn start` to launch front-end
 
 ## Resources
 For backend used Node v8.11.2 + Express
