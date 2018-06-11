@@ -10,7 +10,7 @@ export const RecipeHistory = ({ onShowHistory, history = [] }) => (
         </Typography>
         {history.map((recipe, i) => (
             <RecipeCard key={i} {...recipe} />
-        ))}
+        )).reverse()}
         <Button onClick={onShowHistory} outlined>Show history</Button>
     </div>
 )

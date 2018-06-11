@@ -8,10 +8,13 @@ const defaultState = {
     error: false,
     pending: false,
     history: [],
+    historyLoaded: false,
 };
 
 function addToHistory(history, payload) {
-    return !history.some(({ id }) => id === payload.id) ? [...history, payload] : history;
+    const recipeHistory = history.find(({ id }) => id === payload.id);
+
+    return recipeHistory ? [...recipeHistory, { ...payload }] : [...history, payload];
 } 
 
 export default (state = defaultState, { type, payload }) => {
@@ -28,6 +31,7 @@ export default (state = defaultState, { type, payload }) => {
                 pending: false,
                 error: false,
                 history: addToHistory(state.history, payload),
+                historyLoaded: true,
             }
         case VIEW_RECIPE_HISTORY_FAILURE:
             return {
