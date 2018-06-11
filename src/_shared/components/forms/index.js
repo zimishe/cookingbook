@@ -7,18 +7,26 @@ class RecipeForm extends Component {
     constructor(props) {
         super(props);
 
+        const { title, description } = props;
+
         this.state = {
-            title: '',
-            description: '',
+            title: title || '',
+            description: description || '',
         }
     }
 
     onChangeTitle = ({ target: { value }}) => {
-        this.setState({ title: value.trim() });
+        this.setState({ title: value });
     }
 
     onChangeDescription = ({ target: { value }}) => {
-        this.setState({ description: value.trim() });
+        this.setState({ description: value });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { title, description } = nextProps;
+        
+        this.setState({ title, description });
     }
 
     render() {
@@ -30,6 +38,7 @@ class RecipeForm extends Component {
                 <TextField
                     className="add-recipe__input"
                     label="Recipe name"
+                    value={title}
                     onChange={this.onChangeTitle}
                     fullwidth
                     required
@@ -38,6 +47,7 @@ class RecipeForm extends Component {
                     className="add-recipe__input"
                     textarea
                     label="Recipe description"
+                    value={description}
                     onChange={this.onChangeDescription}
                     fullwidth
                     rows="8"
@@ -49,16 +59,14 @@ class RecipeForm extends Component {
                 >
                     Save
                 </Button>
-                {/* {ingredients.map(({ name, quantity }, i) => (
-                    <IngredientField key={i} name={name} quantity={quantity} />
-                ))} */}
             </form>
         )
     }
 }
 
 RecipeForm.propTypes = {
-    ingredients: PropTypes.array,
+    title: PropTypes.string,
+    description: PropTypes.string,
 };
 
 export default RecipeForm;

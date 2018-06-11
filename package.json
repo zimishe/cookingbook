@@ -5,6 +5,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "moment": "^2.22.2",
     "mongodb": "^3.0.10",
     "node-sass-chokidar": "^1.3.0",
     "nodemon": "^1.17.5",
@@ -17,7 +18,8 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
-    "rmwc": "^1.6.4"
+    "rmwc": "^1.6.4",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "react-scripts": "1.1.4"

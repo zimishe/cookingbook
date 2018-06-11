@@ -1,9 +1,15 @@
 @import '_shared/styles/react-material.scss';
 @import '_shared/styles/main-layout.scss';
 @import 'pages/add-recipe/add-recipe.scss';
+@import 'pages/view-recipe/view-recipe.scss';
 
 body,
 p, {
     margin: 0;
     padding: 0;
+}
+
+.link--home {
+    display: flex;
+    padding: 10px;
 }

@@ -5,6 +5,7 @@ import {
     ToolbarRow,
     ToolbarTitle,
 } from 'rmwc/Toolbar';
+import { LinkHome } from './../../_shared/components/link-home';
 import RecipeForm from './../../_shared/components/forms';
 import * as actions from './add-recipe.actions';
 
@@ -16,14 +17,15 @@ class AddRecipe extends Component {
     onFormSubmit = (title, description, event) => {
         event.preventDefault();
         
-        this.props.createRecipe({ title, description });
+        this.props.createRecipe({ title: title.trim(), description: description.trim() });
     }
 
     render() {
         return (
             <React.Fragment>
-                <Toolbar waterfall>
+                <Toolbar>
                     <ToolbarRow>
+                        <LinkHome />
                         <ToolbarTitle>Add recipe</ToolbarTitle>
                     </ToolbarRow>
                 </Toolbar>

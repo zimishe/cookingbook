@@ -1,5 +1,4 @@
 const { dbName } = require('./../_config/db');
-const ObjectID = require('mongodb').ObjectID;
 
 module.exports = (app, client) => {
     app.get('/recipes/history/:id', (req, res) => {

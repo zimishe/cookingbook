@@ -1,1 +1,37 @@
+.single-recipe {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 30px;
 
+    &__main-info,
+    &__history {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__main-info {
+        flex-basis: 60%;
+    }
+
+    &__history {
+        flex-basis: 40%;
+    }
+
+    &__title,
+    &__date,
+    &__description {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        margin-bottom: 0;
+    }
+
+    &__controls {
+        a {
+            margin-right: 15px;
+        }
+    }
+}

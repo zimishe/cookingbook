@@ -7,7 +7,7 @@ import {
 const defaultState = {
     error: false,
     pending: false,
-    history: null,
+    history: [],
 };
 
 export default (state = defaultState, { type, payload }) => {

@@ -6,7 +6,7 @@ import {
 const defaultState = {
     error: false,
     pending: false,
-    recipes: null,
+    recipes: [],
 };
 
 export default (state = defaultState, { type, payload }) => {

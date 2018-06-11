@@ -15,7 +15,31 @@
   .recipe-form__input.mdc-text-field {
     margin-bottom: 20px; }
 
+.single-recipe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 30px; }
+  .single-recipe__main-info, .single-recipe__history {
+    display: flex;
+    flex-wrap: wrap; }
+  .single-recipe__main-info {
+    flex-basis: 60%; }
+  .single-recipe__history {
+    flex-basis: 40%; }
+  .single-recipe__title, .single-recipe__date, .single-recipe__description {
+    flex-basis: 100%;
+    margin-bottom: 20px; }
+  .single-recipe__title {
+    margin-bottom: 0; }
+  .single-recipe__controls a {
+    margin-right: 15px; }
+
 body,
 p {
   margin: 0;
   padding: 0; }
+
+.link--home {
+  display: flex;
+  padding: 10px; }

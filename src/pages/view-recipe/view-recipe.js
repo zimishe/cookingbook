@@ -5,8 +5,9 @@ import {
     ToolbarRow,
     ToolbarTitle,
 } from 'rmwc/Toolbar';
-import RecipeForm from './../../_shared/components/forms';
-import getRecipesListProps from './../../_shared/selectors/get-recipes';
+import { LinkHome } from './../../_shared/components/link-home';
+import { RecipeMainInfo } from './../../_shared/components/recipe-info/main-info';
+import { RecipeHistory } from './../../_shared/components/recipe-info/history-info';
 import * as actions from './view-recipe.actions';
 import { fetchRecipes } from './../recipes-list/recipes-list.actions';
 
@@ -15,45 +16,47 @@ class ViewRecipe extends Component {
         return !!title && !!description;
     }
 
-    onFormSubmit = (title, description, event) => {
-        event.preventDefault();
-
-        const { editRecipe, match: { params: { id }}} = this.props;
+    onShowHistory = () => {
+        const { viewRecipeHistory, match: { params: { id }} } = this.props;
         
-        editRecipe({ title, description }, id);
+        viewRecipeHistory(id);
     }
 
     componentDidMount() {
         const { recipes, fetchRecipes } = this.props;
 
-        if (!recipes) {
+        if (!recipes.length) {
             fetchRecipes();
         }
     }
 
     render() {
-        console.log('props', this.props);
-        const { recipes, match: { params: { id }} } = this.props;
-        const recipe = recipes && [...recipes].find(({ _id }) => _id === id);
-
-        console.log('recipe', recipe);
+        const { recipes = [], history, match: { params } } = this.props;
+        const recipe = [...recipes].find(({ id }) => id === params.id) || {};
+        const { title = '', description = '', dateAdded='' } = recipe;
 
         return (
             <React.Fragment>
                 <Toolbar waterfall>
                     <ToolbarRow>
+                        <LinkHome />
                         <ToolbarTitle>Recipe</ToolbarTitle>
                     </ToolbarRow>
                 </Toolbar>
                 <div className='container'>
-                    <RecipeForm
-                        isFormValid={this.isFormValid}
-                        onFormSubmit={this.onFormSubmit}
-                    />
+                    <div className='single-recipe'>
+                        <RecipeMainInfo id={params.id} title={title} description={description} dateAdded={dateAdded} />
+                        <RecipeHistory onShowHistory={this.onShowHistory} history={history} />
+                    </div>
                 </div>
             </React.Fragment>
         )
     }
 }
 
-export default connect(getRecipesListProps, {...actions, fetchRecipes})(ViewRecipe);
+const mapStateToProps = ({
+    recipesListReducer: { recipes },
+    viewRecipeReducer: { history, error, pending }
+}) => ({ recipes, history, error, pending });
+
+export default connect(mapStateToProps, {...actions, fetchRecipes})(ViewRecipe);

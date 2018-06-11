@@ -1,10 +1,9 @@
 const { dbName } = require('./../_config/db');
-const ObjectID = require('mongodb').ObjectID;
 
 module.exports = (app, client) => {
     app.put('/recipes/:id', async (req, mainResult) => {
         const id = req.params.id;
-        const details = { _id: new ObjectID(id) };
+        const details = { id };
         
         const recipe = { ...req.body };
 
@@ -14,10 +13,10 @@ module.exports = (app, client) => {
             if (error) {
                 mainResult.send(error);
             }   else {
-                const { _id, ...rest } = result;
+                const { _id, dateAdded, ...rest } = result;
                 
-                updateRecipe(db, details, mainResult, recipe);
-                moveRecipeToHistory(db, mainResult, rest);
+                updateRecipe(db, result, mainResult, {...result, ...recipe});
+                moveRecipeToHistory(db, mainResult, {...rest, dateEdited: new Date().toISOString()});
             }
         });
     })
