@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "body-parser": "^1.18.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
     "moment": "^2.22.2",
     "mongodb": "^3.0.10",

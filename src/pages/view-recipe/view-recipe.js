@@ -11,7 +11,7 @@ import { RecipeHistory } from './../../_shared/components/recipe-info/history-in
 import * as actions from './view-recipe.actions';
 import { fetchRecipes } from './../recipes-list/recipes-list.actions';
 
-class ViewRecipe extends Component {
+export class ViewRecipe extends Component {
     isFormValid = (title, description) => {
         return !!title && !!description;
     }

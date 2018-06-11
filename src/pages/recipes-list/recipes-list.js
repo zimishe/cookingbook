@@ -12,7 +12,7 @@ import { RecipeCard } from './../../_shared/components/cards/recipe-card';
 import getRecipesListProps from './../../_shared/selectors/get-recipes';
 import * as actions from './recipes-list.actions';
 
-class RecipesList extends Component {
+export class RecipesList extends Component {
     componentDidMount() {
         const { recipes, fetchRecipes } = this.props;
 

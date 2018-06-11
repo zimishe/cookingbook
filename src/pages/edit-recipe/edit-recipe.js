@@ -11,7 +11,7 @@ import RecipeForm from './../../_shared/components/forms';
 import { fetchRecipes } from './../recipes-list/recipes-list.actions';
 import * as actions from './edit-recipe.actions';
 
-class EditRecipe extends Component {
+export class EditRecipe extends Component {
     componentDidMount() {
         const { recipes, fetchRecipes } = this.props;
 

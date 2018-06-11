@@ -9,7 +9,7 @@ import { LinkHome } from './../../_shared/components/link-home';
 import RecipeForm from './../../_shared/components/forms';
 import * as actions from './add-recipe.actions';
 
-class AddRecipe extends Component {
+export class AddRecipe extends Component {
     isFormValid = (title, description) => {
         return !!title && !!description;
     }
