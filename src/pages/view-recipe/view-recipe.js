@@ -31,9 +31,10 @@ class ViewRecipe extends Component {
     }
 
     render() {
-        const { recipes = [], history, match: { params } } = this.props;
+        const { recipes = [], match: { params } } = this.props;
         const recipe = [...recipes].find(({ id }) => id === params.id) || {};
         const { title = '', description = '', dateAdded='' } = recipe;
+        const { history } = this.props.history.find(({ id }) => id === params.id) || {};
 
         return (
             <React.Fragment>

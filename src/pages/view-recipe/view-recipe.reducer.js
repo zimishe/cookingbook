@@ -10,6 +10,10 @@ const defaultState = {
     history: [],
 };
 
+function addToHistory(history, payload) {
+    return !history.some(({ id }) => id === payload.id) ? [...history, payload] : history;
+} 
+
 export default (state = defaultState, { type, payload }) => {
     switch (type) {
         case VIEW_RECIPE_HISTORY:
@@ -23,7 +27,7 @@ export default (state = defaultState, { type, payload }) => {
                 ...state,
                 pending: false,
                 error: false,
-                history: payload,
+                history: addToHistory(state.history, payload),
             }
         case VIEW_RECIPE_HISTORY_FAILURE:
             return {

@@ -5,7 +5,7 @@ import { Typography } from 'rmwc/Typography';
 import { getConvertedDate } from './../../utils/get-converted-date';
 
 export const RecipeCard = ({ title = '', description = '', dateAdded = '', dateEdited = '' }) => (
-    <CardPrimaryAction>
+    <CardPrimaryAction className="single-recipe__card">
         <Typography use="headline6">{title}</Typography>
         <Typography use="subtitle2">{getConvertedDate(dateAdded || dateEdited)}</Typography>
         <Typography use="body1">{description}</Typography>

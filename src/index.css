@@ -34,6 +34,11 @@
     margin-bottom: 0; }
   .single-recipe__controls a {
     margin-right: 15px; }
+  .single-recipe .single-recipe__card {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding: 15px; }
 
 body,
 p {

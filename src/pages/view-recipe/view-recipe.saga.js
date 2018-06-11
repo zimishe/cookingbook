@@ -8,9 +8,8 @@ import * as ApiService from './../../_shared/_services/api-service';
 
 export function* viewRecipeHistorySaga({ id }) {
     try {
-        const response = yield call(ApiService.getRecipeHistory, id);
-        console.log('resp', response);
-        yield put(viewRecipeHistorySuccess(response));
+        const history = yield call(ApiService.getRecipeHistory, id);
+        yield put(viewRecipeHistorySuccess({ history, id }));
     } catch (error) {
         yield put(viewRecipeHistoryFailure());
     }
