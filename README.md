@@ -7,7 +7,7 @@ front-end - `src/` directory
 `yarn start` to launch front-end
 
 ## Resources
-For backend used Node v8.11.2 + Express
+For backend used Node v10.16.0 + Express
 For database use MongoDB deployed on Heroku
 
 ## Available Scripts
