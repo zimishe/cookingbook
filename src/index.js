@@ -15,5 +15,5 @@ app.use((req, res, next) => {
 require('./routes')(app);
 
 app.listen(port, () => {
-	console.log('Server is live at ', port);
+	console.log('Server is live at port', port);
 });

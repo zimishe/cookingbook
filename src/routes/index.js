@@ -1,5 +1,3 @@
 const authTokenRoute = require('./authToken');
 
-module.exports = (app, db) => {
-	authTokenRoute(app, db);
-}
+module.exports = app => authTokenRoute(app);
