@@ -9,8 +9,7 @@
     "server": "nodemon src/index.js",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p start-js",
-    "build-js": "react-scripts build",
-    "build": "npm-run-all build-js"
+    "build-js": "react-scripts build"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
